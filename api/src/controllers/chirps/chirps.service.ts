@@ -2,6 +2,8 @@
 import { BaseChirp, Chirp } from "./chirp.interface";
 import { Chirps } from "./chirps.interface";
 
+
+// Methods //===>
 export const findAll = async (): Promise<Chirp[]> => {
     // Querying Database Code goes here
     return;
