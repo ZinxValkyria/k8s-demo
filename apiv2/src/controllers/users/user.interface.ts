@@ -1,10 +1,8 @@
-export interface BaseUser {
+export type BaseUser = {
     displayName: String;
     joined: Date;
     avatar: URL;
     username: String;
 }
 
-export interface User extends BaseUser {
-    id: number;
-}
+export type User = BaseUser & {id: number};

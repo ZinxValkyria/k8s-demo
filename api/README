@@ -1,3 +1,0 @@
-To get this script to run you need a .env file in the root of the project, otherwise it wont work.
-Sample .env file:
-PORT={number}

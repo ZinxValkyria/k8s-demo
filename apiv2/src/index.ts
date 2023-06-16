@@ -3,8 +3,11 @@ import * as dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
+import { userRouter } from "./controllers/users/user.router";
+import { connect } from "./modules/db";
 
 dotenv.config();
+//initDB();
 
 // App Variables //===>
 
@@ -22,10 +25,7 @@ app.use(express.json());
 
 
 // Routes //====>
-app.get("/", (req, res) => {
-    console.log(`URL: ${req.url}`);
-    res.send("Hi there!");
-});
+app.use("/user", userRouter)
 
 // Server Init //====>
 const server = app.listen(PORT, () => {

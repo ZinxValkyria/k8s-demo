@@ -24,7 +24,9 @@
 		},
 		"ghcr.io/devcontainers/features/terraform:1": {}
 	},
-	"runArgs": ["--name", "dev"]
+	"runArgs": ["--name", "dev"],
+	"containerUser": "dev",
+	"workspaceFolder": "/home/dev/workspace"
 	
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],

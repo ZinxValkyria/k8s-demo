@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 RUN alias k=kubectl && \
     apt-get update && \
-    apt-get install -y sudo curl git-core gnupg locales nodejs zsh wget nano npm fonts-powerline && \
+    apt-get install -y sudo curl git-core gnupg locales zsh wget nano fonts-powerline && \
     locale-gen en_GB.UTF-8 && \
     adduser --quiet --disabled-password --shell /bin/zsh --home /home/dev --gecos "User" dev && \
     echo "dev:dev" | chpasswd && usermod -aG sudo dev
@@ -17,4 +17,6 @@ RUN mkdir ~/.config && \
     touch ~/.config/starship.toml && \
     starship preset nerd-font-symbols -o ~/.config/starship.toml
 RUN printf "[container]\ndisabled=true" >> ~/.config/starship.toml
+RUN sudo sh -c "$(curl -fsSL https://deb.nodesource.com/setup_19.x)"
+RUN sudo apt-get install -y nodejs
 CMD ["zsh"]
