@@ -1,13 +1,14 @@
 // Required Modules //===>
 import * as dotenv from "dotenv";
-import express from "express";
+import express, {Request, Response} from "express";
 import cors from "cors";
 import helmet from "helmet";
 import { userRouter } from "./controllers/users/user.router";
 import { connect } from "./modules/db";
 
 dotenv.config();
-//initDB();
+connect();
+
 
 // App Variables //===>
 
@@ -25,7 +26,12 @@ app.use(express.json());
 
 
 // Routes //====>
-app.use("/user", userRouter)
+app.use("/user", userRouter);
+
+app.get("/", async (req: Request, res: Response) => {
+    console.log("request received");
+    res.status(200).send("tested");
+})
 
 // Server Init //====>
 const server = app.listen(PORT, () => {

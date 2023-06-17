@@ -8,7 +8,8 @@ const{
 } = process.env;
 
 let database: Mongoose.Connection;
-export const connect = () => {  // add your own uri below
+
+export const connect = async () => {  // add your own uri below
     if (!db_host) {
         throw new Error("DB_HOST not set! edit you .env config");
     };
@@ -18,11 +19,12 @@ export const connect = () => {  // add your own uri below
         return;
     };
 
-    Mongoose.connect(uri);
+    await Mongoose.connect(uri);
     
-    database = Mongoose.connection;  database.once("open", async () => {
+    database = Mongoose.connection;
+    database.once("connected", async () => {
         console.log("Connected to database");
-    });
+    }); 
     
     database.on("error", () => {
         console.log("Error connecting to database");
