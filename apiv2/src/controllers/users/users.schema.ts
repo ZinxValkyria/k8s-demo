@@ -1,5 +1,5 @@
 import { Schema } from "mongoose";
-import { findOneOrCreate } from "./users.statics";
+import { findOneByUserNameOrCreate } from "./users.statics";
 import { setDisplayName } from "./users.methods";
 
 const UserSchema = new Schema({
@@ -8,12 +8,12 @@ const UserSchema = new Schema({
         type: Date,
         default: new Date()
     },
-    avatar: URL,
+    avatar: String,
     username: String,
 });
 
 
-UserSchema.statics.findOneOrCreate = findOneOrCreate;
+UserSchema.statics.findOneByUserNameOrCreate = findOneByUserNameOrCreate;
 UserSchema.methods.setDisplayName = setDisplayName;
 
 

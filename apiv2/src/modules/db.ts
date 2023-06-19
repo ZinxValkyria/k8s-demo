@@ -15,20 +15,13 @@ export const connect = async () => {  // add your own uri below
     };
 
     const uri: string = db_host;
+
     if (database) {
         return;
     };
 
     await Mongoose.connect(uri);
-    
-    database = Mongoose.connection;
-    database.once("connected", async () => {
-        console.log("Connected to database");
-    }); 
-    
-    database.on("error", () => {
-        console.log("Error connecting to database");
-    });
+    console.log("Connected")
 };
   
 export const disconnect = () => { 
