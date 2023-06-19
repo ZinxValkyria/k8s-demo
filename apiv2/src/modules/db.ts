@@ -19,7 +19,7 @@ export const connect = async () => {  // add your own uri below
     if (database) {
         return;
     };
-
+    
     await Mongoose.connect(uri);
     console.log("Connected")
 };

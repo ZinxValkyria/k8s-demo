@@ -9,7 +9,7 @@ export const chirpRouter = express.Router();
 // Returns all chirps
 chirpRouter.get("/", async (req: Request, res: Response) => {
     try {
-        const chirps: chirpType.IChirp[] = await ChirpModel.find();
+        const chirps: chirpType.IChirpDocument[] = await ChirpModel.find({});
         console.log(chirps);
         res.status(200).send(chirps);
     } catch (e: any) {

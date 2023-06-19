@@ -9,11 +9,11 @@ export const userRouter = express.Router();
 // Returns all users
 userRouter.get("/", async (req: Request, res: Response) => {
     try {
-        const users: userType.IUser[] = await UserModel.find();
+        const users: userType.IUser[] = await UserModel.find({});
         console.log(users);
-        res.status(200).send([users, "hello"]);
+        res.status(200).send(users);
     } catch (e: any) {
-        console.error("oopsies");
+        console.error("Could not get all Users");
         res.status(500).send(e.message);
     }
 });
