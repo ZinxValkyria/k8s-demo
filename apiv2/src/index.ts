@@ -4,6 +4,7 @@ import express, {Request, Response} from "express";
 import cors from "cors";
 import helmet from "helmet";
 import { userRouter } from "./controllers/users/user.router";
+import { chirpRouter } from "./controllers/chirps/chirp.router";
 import { connect } from "./modules/db";
 
 dotenv.config();
@@ -27,6 +28,7 @@ app.use(express.json());
 
 // Routes //====>
 app.use("/user", userRouter);
+app.use("/chirp", chirpRouter);
 
 app.get("/", async (req: Request, res: Response) => {
     console.log("request received");
