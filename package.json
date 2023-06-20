@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "next-auth": "^4.22.1",
     "redis-om": "^0.3.6"
   }
 }
