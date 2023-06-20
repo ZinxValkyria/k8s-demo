@@ -21,10 +21,9 @@
 			"version": "latest",
 			"helm": "latest",
 			"minikube": "latest"
-		},
-		"ghcr.io/devcontainers/features/terraform:1": {}
+		}
 	},
-	"runArgs": ["--name=dev","--network=host"],
+	"runArgs": ["--name=dev"],
 	"containerUser": "dev"	
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],

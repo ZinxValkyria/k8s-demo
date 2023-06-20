@@ -19,4 +19,5 @@ RUN mkdir ~/.config && \
 RUN printf "[container]\ndisabled=true" >> ~/.config/starship.toml
 RUN sudo sh -c "$(curl -fsSL https://deb.nodesource.com/setup_19.x)"
 RUN sudo apt-get install -y nodejs
+RUN sudo apt-get update && sudo apt-get upgrade -y
 CMD ["zsh"]

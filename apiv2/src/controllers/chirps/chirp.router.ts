@@ -9,7 +9,7 @@ export const chirpRouter = express.Router();
 // Returns all chirps
 chirpRouter.get("/", async (req: Request, res: Response) => {
     try {
-        const chirps: chirpType.IChirpDocument[] = await ChirpModel.find({});
+        const chirps: chirpType.IChirpDocument[] = await ChirpModel.find({}).sort({ posted: 'desc'});
         console.log(chirps);
         res.status(200).send(chirps);
     } catch (e: any) {
@@ -25,6 +25,7 @@ chirpRouter.post("/", async (req: Request, res: Response) => {
     const post = req.body.post;
     if (!post) {
         res.status(400).send("Invalid Request");
+        return;
     }
 
     try {

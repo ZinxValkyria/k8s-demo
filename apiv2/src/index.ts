@@ -39,3 +39,5 @@ app.get("/", async (req: Request, res: Response) => {
 const server = app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
 });
+
+
