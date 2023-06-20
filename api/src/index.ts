@@ -3,8 +3,10 @@ import * as dotenv from "dotenv";
 import express, {Request, Response} from "express";
 import cors from "cors";
 import helmet from "helmet";
+import cookieParser from "cookie-parser";
 import { userRouter } from "./controllers/users/user.router";
 import { chirpRouter } from "./controllers/chirps/chirp.router";
+import { authRouter } from "./controllers/auth/auth.router";
 import { connect } from "./modules/db";
 
 dotenv.config();
@@ -23,16 +25,19 @@ const app = express();
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+app.use(cookieParser());
 
 
 
 // Routes //====>
 app.use("/user", userRouter);
 app.use("/chirp", chirpRouter);
+app.use("/api/auth", authRouter);
 
 app.get("/", async (req: Request, res: Response) => {
-    console.log("request received");
-    res.status(200).send("tested");
+    console.log("request received... BOUNCE");
+    res.status(200).send("bounce");
 })
 
 // Server Init //====>
