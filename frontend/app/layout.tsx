@@ -17,10 +17,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        
+      <div className='bg-base-100'>
         {/* <SessionProvider  > */}
           {children}
         {/* </SessionProvider> */}
+      </div>
+
       </body>
     </html>
   )

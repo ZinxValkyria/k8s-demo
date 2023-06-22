@@ -5,10 +5,13 @@ type Props = {
 }
 
 export default function ChirpBox({chirp}:Props) {
-    return(<aside className='flex flex-wrap gap-1 bg-gray-400 p-4 rounded-2xl h-1/3 w-1/3'>
-        <p className='text-black text-2xl w-full'>{chirp.content}</p>
-        <p className='text-black'>{chirp.author}</p>
+    const date: Date = new Date(chirp.posted);
+    return(<aside className='card card-compact w-2/6 shadow-xl bg-neutral'>
+        <div className='card-body'>
+        <p className='text-primary inline'>{chirp.author}</p>
+        <p className='card-title'>{chirp.content}</p>
         {/* <p className='text-black'>{(chirp.likes).toString()}</p> */}
-        <p className='text-black'>{chirp.posted.toString()}</p>
+        <p className='text-primary'>{date.toLocaleDateString()}</p>
+        </div>
     </aside>)
 }

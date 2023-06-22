@@ -15,13 +15,18 @@ export default function ChirpArray() {
         });
         
         let data = await response.json();
-        setChirps(data);
+        return(data);
     };
+
+    async function updateChirps() {
+        getChirps()
+            .then((data) => {setChirps(data)});
+    }
     
-    let [chirps, setChirps] = useState<Chirp[]>();
+    let [chirps, setChirps] = useState<Chirp[]>(chirpsProp);
 
     return (<>
-    <button className='bg-blue-500 mb-1 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={getChirps}>
+    <button className='bg-blue-500 mb-1 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={updateChirps()}>
         Refresh
     </button>
     <div className='flex flex-col justify-center gap-1 content-center w-full'>

@@ -1,6 +1,6 @@
 'use client';
 
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 import { Chirp } from "../chirp/typedef";
 
 
@@ -55,12 +55,13 @@ const postChirp = async (event: React.SyntheticEvent) => {
 
 export default function PostBox() {
     return <>
-    <aside className='w-1/3 mb-1 bg-gray-400 p-4 rounded-2xl h-1/3'>
-        <h1 className="mb-1 text-slate-600">Whats on your mind?...</h1>
-        <form onSubmit={postChirp} id="form" >
-            <textarea placeholder="Enter text here..." form="form" name="content" id="content" className="mb-1 p-1 rounded-lg bg-gray-500 w-full" />
-            <button type="submit" className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>Chirp!</button>
+    <aside className='card card-compact bg-neutral w-2/6 bg-base-100'>
+        <div className="card-body">    
+        <textarea placeholder="Whats on your mind?" form="form" name="content" id="content" className="textarea textarea-primary" />
+        <form className="card-actions justify-end" onSubmit={postChirp} id="form" >
+            <button type="submit" className='btn btn-primary justify-end'>Chirp!</button>
         </form>
+        </div>
     </aside>
     
     </>
