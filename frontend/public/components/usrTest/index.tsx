@@ -1,10 +1,15 @@
 'use client';
-import { useSession, SessionProvider } from "next-auth/react"
+import { useSession, SessionProvider, getSession } from "next-auth/react"
 
 
 export default function UsrTest() {
-    const { data: session, status} = useSession();
+    const {data, status} = useSession();
+
     return <>
-            {(status === "authenticated") && <p>{session.user?.email}</p>}
+        {status}
+        <pre>
+            {JSON.stringify(data)}
+            test
+        </pre>
     </>
 }

@@ -55,7 +55,7 @@ const postChirp = async (event: React.SyntheticEvent) => {
 
 export default function PostBox() {
     return <>
-    <aside className='card card-compact bg-neutral w-2/6 bg-base-100'>
+    <aside className='card card-compact bg-neutral bg-base-100'>
         <div className="card-body">    
         <textarea placeholder="Whats on your mind?" form="form" name="content" id="content" className="textarea textarea-primary" />
         <form className="card-actions justify-end" onSubmit={postChirp} id="form" >

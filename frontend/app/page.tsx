@@ -1,38 +1,26 @@
 'use client';
-import Image from 'next/image'
-import { useState } from 'react'
-import ChirpArray from '@/public/components/chirpArray';
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
-import { Chirp } from '@/public/components/chirp/typedef';
-import PostBox from '@/public/components/postBox';
+import User from '@/public/components/user';
+import Home from '@/public/components/home';
 import UsrTest from '@/public/components/usrTest';
+import AuthContext from '@/public/components/sessionProvider';
 import { SessionProvider } from 'next-auth/react';
 
-import {
-  LoginButton,
-  LogOut,
-  ProfileButton,
-  Register,
-} from "@/public/components/authBtns/index"
+export default async function Page() {
 
-export default function Home() {
-
- 
-
+  
   return (
-    <>  
-    
-
+    <>
     <SessionProvider>
 
-      <UsrTest/>
+    {/* <AuthContext> */}
+        <UsrTest/>
+        <User />
+        <div className='flex w-full mt-12 justify-center'>
+          <Home />
+        </div>
+    {/* </AuthContext> */}
     </SessionProvider>
-      <LoginButton/>
-      <Register/>
-      <LogOut/>
-      <ProfileButton/>
-      <PostBox />
-      <ChirpArray />
     </>
   )
 }
+

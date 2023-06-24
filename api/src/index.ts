@@ -33,7 +33,7 @@ app.use(cookieParser());
 // Routes //====>
 app.use("/user", userRouter);
 app.use("/chirp", chirpRouter);
-app.use("/api/auth", authRouter);
+//app.use("/api/auth", authRouter);
 
 app.get("/", async (req: Request, res: Response) => {
     console.log("request received... BOUNCE");
