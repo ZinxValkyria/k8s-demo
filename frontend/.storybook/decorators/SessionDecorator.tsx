@@ -1,4 +1,4 @@
-import AuthCtx from "../../components/auth/Session";
+import AuthCtx from "../../components/auth/AuthCtx";
 import {useParameter} from "@storybook/addons";
 import { useState } from "react";
 

@@ -1,11 +1,13 @@
 'use client';
+import { useContext } from "react";
+import postContext from "@/components/posts/PostCtx";
 import Post from "../Post";
 import { PostType } from "../Post/typedef";
 import useFetch from "@/hooks/useFetch";
 
 export default function PostArray() {
 
-    const {data, error, loading} = useFetch('http://localhost:3000/chirp');
+    const {data, error, loading} = useContext(postContext);
 
     if (error) {
         return <>
