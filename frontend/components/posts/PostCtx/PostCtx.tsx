@@ -1,14 +1,15 @@
 'use client';
-import { createContext, useState } from "react";
+import { createContext } from "react";
 import useFetch from "@/hooks/useFetch";
+import { PostType } from "../Post/typedef";
 
-export const postContext = createContext(useFetch('http://localhost:3000/chirp'));
+export const postContext = createContext({data: PostType[], error: "", loading: false});
 
 type Props = {
     children: React.ReactNode,
 }
 
-function PostCtx({children}: Props) {
+export default function PostCtx({children}: Props) {
 
     const {data, error, loading} = useFetch('http://localhost:3000/chirp');
 
@@ -18,7 +19,4 @@ function PostCtx({children}: Props) {
         </postContext.Provider>
     </>
 
-
 }
-
-export default PostCtx;
