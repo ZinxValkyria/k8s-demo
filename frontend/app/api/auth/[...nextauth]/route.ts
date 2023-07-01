@@ -3,7 +3,16 @@ import GithubProvider from "next-auth/providers/github";
 import { config } from "dotenv";
 
 config();
-if (!process.env.GITHUB_ID || !process.env.GITHUB_SECRET) {throw new Error("REQUIRED ENV VARS NOT SET")}
+if (!process.env.GITHUB_ID || !process.env.GITHUB_SECRET) {
+    if (process.env.BUILD == "true") {
+        process.env.GITHUB_ID="";
+        process.env.GITHUB_SECRET="";
+        console.log("Using spoofed values for build")
+
+    } else {
+        throw new Error("REQUIRED ENV VARS NOT SET")
+    }
+};
 
 const handler = NextAuth({
     providers: [
