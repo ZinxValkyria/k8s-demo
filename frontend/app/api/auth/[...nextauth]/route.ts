@@ -4,6 +4,7 @@ import { config } from "dotenv";
 
 config();
 if (!process.env.GITHUB_ID || !process.env.GITHUB_SECRET) {
+    console.log(process.env.BUILD)
     if (process.env.BUILD == "true") {
         process.env.GITHUB_ID="";
         process.env.GITHUB_SECRET="";

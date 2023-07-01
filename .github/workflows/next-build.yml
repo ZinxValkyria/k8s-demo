@@ -14,4 +14,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the NextJS Server
+      env:
+        BUILD: "true"
       run: cd frontend && npm i && npm run build
