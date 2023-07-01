@@ -13,4 +13,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the NextJS Server
-      run: npm ci && npm run build
+      run: npm i && npm run build
