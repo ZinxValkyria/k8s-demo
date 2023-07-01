@@ -24,4 +24,4 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: next-static
-        path: ./build/static/
+        path: frontend/build/static/
