@@ -20,8 +20,8 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: next-server
-        path: build/standalone/
+        path: frontend/build/standalone/
     - uses: actions/upload-artifact@v3
       with:
         name: next-static
-        path: build/static/
+        path: ./build/static/
