@@ -17,3 +17,11 @@ jobs:
       env:
         BUILD: "true"
       run: cd frontend && npm i && npm run build
+    - uses: actions/upload-artifact@v3
+      with:
+        name: next-server
+        path: build/standalone/
+    - uses: actions/upload-artifact@v3
+      with:
+        name: next-static
+        path: build/static/
