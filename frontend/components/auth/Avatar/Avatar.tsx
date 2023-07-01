@@ -16,7 +16,7 @@ export default function Avatar() {
     
     return (<>
         <div className="avatar">
-            <div className="w-16 rounded-lg">
+            <div className="max-w-16 w-auto rounded-lg">
         {(status === "authenticated") && <img src={session.user?.image} />}
             </div>
         </div>

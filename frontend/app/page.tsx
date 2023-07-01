@@ -11,7 +11,6 @@ export default function Home() {
       <div className="fixed top-4 right-4">
       <UserBox />
       </div>
-    </AuthCtx>
     <PostCtx>
     <div className="flex w-full mt-12 justify-center">
       <div className="lg:w-1/2 md:w-4/6 w-full px-8">
@@ -21,6 +20,7 @@ export default function Home() {
       </div>
     </div>
     </PostCtx>
+    </AuthCtx>
     </>
   )
 }

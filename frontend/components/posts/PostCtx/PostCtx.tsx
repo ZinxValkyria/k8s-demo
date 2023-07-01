@@ -1,22 +1,40 @@
 'use client';
-import { createContext } from "react";
+import * as React from "react";
 import useFetch from "@/hooks/useFetch";
 import { PostType } from "../Post/typedef";
+import { PostCtxType } from "@/components/posts/postTypes";
 
-export const postContext = createContext({data: PostType[], error: "", loading: false});
 
-type Props = {
-    children: React.ReactNode,
+const initObj: PostCtxType = {
+    data: [],
+    error: undefined,
+    loading: false,
+    fetchData: undefined,
 }
 
-export default function PostCtx({children}: Props) {
 
-    const {data, error, loading} = useFetch('http://localhost:3000/chirp');
+export const PostContext = React.createContext<PostCtxType>(initObj);
 
-    return <>
-        <postContext.Provider value={{data, error, loading}}>
+interface Props {
+    children: React.ReactNode;
+}
+
+
+const PostCtx = ({children}: Props) => {
+    
+    let {data, error, loading, fetchData} = useFetch('http://localhost:3000/chirp');
+
+    function refreshData() {
+        fetchData();
+    }
+
+    return (<>
+        <PostContext.Provider value={{data, error, loading, fetchData}}>
             {children}
-        </postContext.Provider>
-    </>
-
+        </PostContext.Provider>
+    </>)
 }
+
+export default PostCtx;
+
+export const usePostCtx = () => React.useContext(PostContext);

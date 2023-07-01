@@ -1,0 +1,47 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name:  Frontend
+spec:
+  selector:
+    app:  Selector Label
+  type:  LoadBalancer | ClusterIP | NodePort
+  ports:
+  - name:  name-of-the-port
+    port:  80
+    targetPort:  8080
+
+
+# NEXTJS SERVER DEPLOYMENT
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: Enter deployment name
+spec:
+  replicas: Enter the number of replicas
+  template:
+    metadata:
+      labels:
+        editor: vscode
+    spec:
+      containers:
+      - name: name
+        image: Enter containers image
+
+# API SERVER DEPLOTMENT
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: Enter deployment name
+spec:
+  replicas: Enter the number of replicas
+  template:
+    metadata:
+      labels:
+        editor: vscode
+    spec:
+      containers:
+      - name: name
+        image: Enter containers image

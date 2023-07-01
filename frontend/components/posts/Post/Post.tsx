@@ -1,7 +1,7 @@
-import { Post } from './typedef';
+import { PostType } from './typedef';
 
 type Props = {
-    post: Post;
+    post: PostType;
 }
 
 export default function Post({post}:Props) {

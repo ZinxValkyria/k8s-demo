@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import UserBox from './UserBox';
-import SessionDecorator from "../../../.storybook/decorators/SessionDecorator";
 import { Session } from "next-auth";
 import AuthCtx from "../AuthCtx";
 

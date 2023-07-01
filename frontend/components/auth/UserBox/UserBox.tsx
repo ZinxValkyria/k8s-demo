@@ -3,9 +3,28 @@ import {useSession} from "next-auth/react";
 import Avatar from "../Avatar";
 import SignIn from "../signIn";
 
+type Props = {
+    format?: String
+}
 
-export default function UserBox() {
+export default function UserBox({format} : Props) {
     const {data: session, status} = useSession();
+
+    if (format === "small") {
+        return (<>
+        <div className="bg-neutral" >
+            <div className="flex w-fit flex-row p-2 hover:bg-slate-700 rounded-lg transition-all">
+                <div className="w-12 mr-2">
+                <Avatar />
+                </div>
+                <div className="self-center">
+                <p className="text-primary text-left">posting as</p>
+                <p className="card-title normal-case text-md">{session?.user?.name}</p>
+                </div>
+            </div>
+        </div>
+        </>);
+    };
 
     return <>
     <div className="w-96 h-fit card card-compact bg-neutral">
@@ -15,7 +34,7 @@ export default function UserBox() {
                     <p className="text-primary text-left">signed in as</p>
                     <p className="card-title normal-case">{session.user?.name}</p>
                     </div>
-                    <div className="ml-auto">
+                    <div className="w-16 ml-auto">
                     <Avatar />
                     </div>
             </div>    
