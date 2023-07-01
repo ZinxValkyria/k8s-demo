@@ -35,14 +35,14 @@ userRouter.get("/*", async (req: Request, res: Response) => {
 
 // PUT user/?uname=*
 // finds or creates a user with a given username
-userRouter.put("/*", async (req: Request, res: Response) => {
-    const uname = req.query.uname;
-    if (!uname) { res.status(400).send("Invalid Request"); return; };
-    try {
-        const user: userType.IUserDocument = await UserModel.findOneByUserNameOrCreate(uname);
-        res.status(200).send(user)
-    } catch (e: any) {
-        console.error("Error calling findOneByUserNameOrCreate()");
-        res.status(500).send(e.message);
-    }
-});
+// userRouter.put("/*", async (req: Request, res: Response) => {
+//     const uname = req.query.uname;
+//     if (!uname) { res.status(400).send("Invalid Request"); return; };
+//     try {
+//         const user: userType.IUserDocument = await UserModel.findOneByUserNameOrCreate(uname);
+//         res.status(200).send(user)
+//     } catch (e: any) {
+//         console.error("Error calling findOneByUserNameOrCreate()");
+//         res.status(500).send(e.message);
+//     }
+// });

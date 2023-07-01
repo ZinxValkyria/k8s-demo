@@ -1,13 +1,13 @@
 FROM node:19-alpine
 
 WORKDIR /usr/src/app
-ADD ./build/standalone /usr/src/app/
+ADD ./build /usr/src/app/
+RUN npm i --omit=dev
 
 RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
-USER nextjs
-ENV NODE_ENV production
+RUN adduser --system --uid 1001 express
+USER express
 ENV PORT 3000
 EXPOSE 3000
 
-CMD ["node", "server.js"]
+CMD ["node", "index.js"]
