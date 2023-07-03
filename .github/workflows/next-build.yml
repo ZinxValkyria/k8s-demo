@@ -50,6 +50,6 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name:  next-server
-          path:  frontend/build/
+          path:  frontend/build/standalone
       - name: Build the Docker image
         run: cd frontend && docker compose -f ./docker/production/docker-compose.yml build

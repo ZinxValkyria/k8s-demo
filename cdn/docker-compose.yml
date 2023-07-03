@@ -3,6 +3,6 @@ version: '3'
 services:
   k8s-cdn:
     build:
-      context: ../../
-      dockerfile: Dockerfile
+      context: ./
+      dockerfile: ./Dockerfile
     image: ghcr.io/apollo-xiv/k8s-cdn
