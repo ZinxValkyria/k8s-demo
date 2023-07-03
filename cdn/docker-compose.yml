@@ -5,4 +5,4 @@ services:
     build:
       context: ../../
       dockerfile: docker/production/Dockerfile
-    image: https://ghcr.io/Apollo-XIV/k8s-cdn
+    image: Apollo-XIV/k8s-cdn
