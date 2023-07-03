@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: compiling...
-      run: cd api && npm build
+      run: cd api && npm run build
     - uses: actions/upload-artifact@v3
       with:
         name: api-server
@@ -24,7 +24,7 @@ jobs:
     permissions: write-all
     name: Build and Push API docker image
     runs-on: ubuntu-latest
-
+    needs: [build]
     steps:
     - uses: actions/checkout@v3
     - uses: actions/download-artifact@v3
