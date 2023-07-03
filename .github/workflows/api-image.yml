@@ -12,5 +12,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{github.actor}}
+        password: ${{secrets.GITHUB_TOKEN}}
     - name: Build the Docker image
       run: docker compose -f ./api/docker/production/docker-compose.yml build
+    - name: Push to GHCR.io
+      run: docker push ghcr.io/apollo-xiv/k8s-api:latest

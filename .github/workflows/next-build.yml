@@ -37,7 +37,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name:  next-static
-          path:  cdn/
+          path:  cdn/static/
       - name: Build the Docker image
         run: cd cdn && docker compose -f ./docker-compose.yml build
   server:
