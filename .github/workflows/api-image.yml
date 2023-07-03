@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: compiling...
-      run: cd api && npm run build
+      run: cd api && npm i && npm run build
     - uses: actions/upload-artifact@v3
       with:
         name: api-server
