@@ -4,5 +4,5 @@ services:
   k8s-cdn:
     build:
       context: ../../
-      dockerfile: docker/production/Dockerfile
+      dockerfile: Dockerfile
     image: Apollo-XIV/k8s-cdn
