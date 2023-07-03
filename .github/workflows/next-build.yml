@@ -28,6 +28,7 @@ jobs:
         path: frontend/build/static/
 
   static:
+    permissions: write-all
     name: Build static image
     needs: [build]
     runs-on: ubuntu-latest
@@ -50,6 +51,7 @@ jobs:
 
 
   server:
+    permissions: write-all
     name: Build server image
     needs: [build]
     runs-on: ubuntu-latest
